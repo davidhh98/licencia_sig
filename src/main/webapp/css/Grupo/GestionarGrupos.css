@@ -1,0 +1,234 @@
+
+.divBtnBuscar {
+    margin-top:5px;
+    margin-right:5px;
+}
+
+
+.divBtnRegistrar {
+    margin-top:5px;
+}
+
+.divBtnNuevo {
+    margin-top:5px;
+}
+
+.divBtnVolver {
+
+    margin-top:5px;
+    margin-right:5px;
+}
+
+
+.divBotones{
+	display: flex;
+ 	justify-content: flex-end;
+}
+
+.control-label{
+	padding-top: 2px;
+	overflow: revert;
+	cursor: pointer;
+}
+
+.iconBuscarGrupos {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/search.svg);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    display: flex;
+    transition: 1s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+.btn:hover .iconReporte {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+.btn:hover .iconBuscarGrupos {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+.btn:hover .iconNuevoGrupos {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+.btn:hover .iconVolver {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+.iconEliminar {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+
+.iconEditar {
+		filter: invert(50%) sepia(28%) saturate(3256%) hue-rotate(149deg) brightness(90%) contrast(101%);
+}
+
+
+.btnBuscarGrupos:hover {
+	background: var(--blanco);
+	outline: none;
+	box-shadow: none;
+	color: var(--main-color);
+}
+
+.btnNuevosGrupos:hover {
+	background: var(--blanco);
+	outline: none;
+	box-shadow: none;
+	color: var(--main-color);
+}
+.btnEditarUsuario {
+	background: var(--blanco);
+	outline: none;
+	box-shadow: none;
+	color: var(--main-color);
+	border: solid 1px var(--blanco);
+}
+.btnEliminarUsuario{
+	background: var(--blanco);
+	outline: none;
+	box-shadow: none;
+	color: var(--main-color);
+	border: solid 1px var(--blanco);
+}
+
+
+.iconVolver {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/Cerrar.svg);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    display: flex;
+    transition: 1s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 2s;
+}
+
+
+
+.iconEditar {
+    width: 23px;
+    height: 23px;
+    background-image: url(../../images/Editar.png);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+
+
+.iconEliminar {
+    width: 23px;
+    height: 23px;
+    background-image: url(../../images/Eliminar.svg);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+.iconReporte {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/REPORTE.svg);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    display: flex;
+    transition: 1s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 2s;
+}
+
+
+.iconNuevoGrupos {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/Grupo.svg);
+    float: right;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    display: flex;
+    transition: 1s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 2s;
+}
+
+
+.spanlabel-button {
+	display: flex;
+	height: 20px;
+	line-height: 15px;
+}
+
+
+.pagination-link {
+  padding: 5px 10px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+pagination-link,
+.active {
+	color: var(--blanco);
+    background-color: var(--azul);
+    border-radius: 50px;
+}
+
+
+/* .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.pagination-link a {
+  padding: 5px 10px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #333;
+  background-color: red;
+}
+
+
+.pagination-link a:first-child {
+  margin-left: 0;
+}
+
+.pagination-link a:last-child {
+  margin-right: 0;
+}

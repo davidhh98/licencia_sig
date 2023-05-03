@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+	<display-name>licencia_sig</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/contextBean.xml
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<error-page>
+		<location>/licencia_sig/</location>
+	</error-page>
+	<!-- Spring DispatcherServlet -->
+	<servlet>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+<!-- 	<servlet>
+		<servlet-name>fileServlet</servlet-name>
+		<servlet-class>co.com.hyg.mapgis.util.FileServlet</servlet-class>
+	</servlet> -->
+
+	<!-- <servlet-mapping>
+		<servlet-name>fileServlet</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping> -->
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+		<cookie-config>
+			<name>SESSIONlicencia_sig</name>
+			<path>/</path>
+		</cookie-config>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
