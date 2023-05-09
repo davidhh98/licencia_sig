@@ -17,6 +17,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+  		<sonar.organization>licenciasig</sonar.organization>
+ 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
 	</properties>
 
 	<dependencies>
@@ -41,6 +44,8 @@
 			<artifactId>spring-core</artifactId>
 			<version>3.1.1.RELEASE</version>
 		</dependency>
+		
+		
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>

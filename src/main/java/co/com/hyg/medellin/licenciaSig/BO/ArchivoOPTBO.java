@@ -1,44 +1,20 @@
 package co.com.hyg.medellin.licenciaSig.BO;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.sql.Array;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Types;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
-import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import co.com.hyg.medellin.licenciaSig.util.*;
 import co.com.hyg.medellin.licenciaSig.util.DataBase;
-import co.com.hyg.medellin.licenciaSig.util.WebUtil;
-import co.com.hyg.modelo.Usuario;
-import co.com.hyg.medellin.licenciaSig.BO.UtilidadesBO;
 
 public class ArchivoOPTBO {
 
@@ -46,7 +22,7 @@ public class ArchivoOPTBO {
 	private static ResourceBundle rbs = ResourceBundle.getBundle("co.com.hyg.medellin.licenciaSig.util.parametros");
 	static final Logger logger = Logger.getLogger(ArchivoOPTBO.class);
 	private static DataBase dataSource = new DataBase();
-	public static String rutaArchivo = rbs.getString("RUTA_ARCHIVOOPT");// Para modificar la ruta, ir al archivo
+	public static final String rutaArchivo = rbs.getString("RUTA_ARCHIVOOPT");// Para modificar la ruta, ir al archivo
 																		// config.properties
 
 	public static int CreacionArchivo() throws Exception {
@@ -103,8 +79,6 @@ public class ArchivoOPTBO {
 			String comentario = "";
 			String nombreArchivo = rutaArchivo + "/ARCGIS.opt";
 			String nuevaLinea = "";
-			ResultSet rs = null;
-			InitialContext initialContextForDatasource = new InitialContext();
 
 			// Primera sección del Archivo OPT.
 			comentario = "#DEFINICION DE GRUPOS POR DEPENDENCIA Y TIPO DE COMPONENTE LICENCIADO";
@@ -166,8 +140,8 @@ public class ArchivoOPTBO {
 			comentario = "#MAXIMO DE LICENCIAS DE SUBCOMPONENTES QUE SE PUEDE ASIGNAR A CADA GRUPO";
 			EscribirArchivo(nombreArchivo, "\r\n" + comentario + "\r\n");
 			sql = "{\"SQL\":\"SQL_MAXSUBCOMP\",\"N\":0,\"DATOS\":{}}";
-			String RespuestaMAXSUB = utilidadesBO.cargarDatos(sql);
-			JSONArray objMAXSUB = new JSONArray(RespuestaMAXSUB);
+			String respuestaMAXSUB = utilidadesBO.cargarDatos(sql);
+			JSONArray objMAXSUB = new JSONArray(respuestaMAXSUB);
 			for (int i = 0; i < objMAXSUB.length(); i++) {
 			    JSONObject explrObject4 = objMAXSUB.getJSONObject(i);
 				nuevaLinea = explrObject4.getString("MAXIMO") + " " + explrObject4.getInt("CANTIDAD") + " "
@@ -179,8 +153,8 @@ public class ArchivoOPTBO {
 			comentario = "#OTROS PARAMETROS";
 			EscribirArchivo(nombreArchivo, "\r\n" + comentario + "\r\n");
 			sql = "{\"SQL\":\"SQL_OPTPARAMETROS\",\"N\":0,\"DATOS\":{}}";
-			String RespuestaOtros = utilidadesBO.cargarDatos(sql);
-			JSONArray objOtros = new JSONArray(RespuestaOtros);
+			String respuestaOtros = utilidadesBO.cargarDatos(sql);
+			JSONArray objOtros = new JSONArray(respuestaOtros);
 			for (int i = 0; i < objOtros.length(); i++) {
 			    JSONObject explrObject5 = objOtros.getJSONObject(i);
 			    nuevaLinea = explrObject5.getString("NOMBRE") + " " + explrObject5.getString("VALOR");
@@ -195,6 +169,7 @@ public class ArchivoOPTBO {
 					preparedStatement.close();
 				}
 			} catch (Exception e2) {
+				
 			}
 			try {
 				if (connection != null) {
@@ -238,13 +213,12 @@ public class ArchivoOPTBO {
 			for (int j = 0; j < arr.length(); j++) {
 				JSONObject obj = arr.getJSONObject(j);
 				JSONObject objectFormated = new JSONObject();
-				// String jsonString = obj.toString();
 				for (int i = 0; i < arrNames.length(); i++) {
 					try {
 						String name = arrNames.getString(i);
 						objectFormated.put(name.toUpperCase(), obj.get(name));
-						// jsonString = jsonString.replace(name,name.toUpperCase());
 					} catch (Exception e) {
+						
 					}
 				}
 				arrFinal.put(objectFormated);
